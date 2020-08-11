@@ -1,0 +1,9 @@
+.wy-side-nav-search {
+    z-index: 200;
+    background-color: #8C1515 !important;
+}
+
+a {
+    color: #8C1515 !important;
+    text-decoration: none;
+}

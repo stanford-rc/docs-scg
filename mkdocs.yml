@@ -1,0 +1,38 @@
+site_name: "SCG"
+site_url: "https://docs.scg.stanford.edu"
+site_description: "SCG Cluster Documentation"
+site_author: "@griznog"
+dev_addr: "127.0.0.1:12001"
+
+theme: readthedocs
+
+nav:
+    - "Home": index.md
+    - "Requesting Accounts": accounts.md
+    - "Quick Start": quick_start.md
+    - "NIH Supercomputer (UV300)": uv300.md
+    - "COVID-19 Access": covid19.md
+    - "Tutorials":
+        - "Connecting to SCG": tutorials/connecting.md
+        - "Managing and Moving Data": tutorials/data_management.md
+        - "Working with Slurm": tutorials/job_scripts.md
+        - "Avoiding Duo with SSH": tutorials/ssh_controlmaster.md
+        - "Using GPUs": tutorials/gpus.md
+    - "FAQs":
+        - "--account=?": faqs/account.md
+        - "--time=?": faqs/time.md
+        - "CPUs/Nodes/Tasks?": faqs/cores.md
+        - "Memory?": faqs/memory.md
+        - "Oak Storage Migration": faqs/oak_migration.md
+    - "Getting Help": contact.md
+
+extra_css: [extra.css]
+markdown_extensions:
+    - smarty
+    - toc:     
+        permalink: True
+    - sane_lists
+    - fenced_code
+    - codehilite
+
+google_analytics: ['UA-132448515-1', 'login.scg.stanford.edu']
