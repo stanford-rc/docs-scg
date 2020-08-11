@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="@griznog">
+  <link rel="canonical" href="https://docs.scg.stanford.edu/faqs/cores/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>CPUs/Nodes/Tasks? - SCG</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CPUs/Nodes/Tasks?";
+    var mkdocs_page_input_path = "faqs/cores.md";
+    var mkdocs_page_url = "/faqs/cores/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-132448515-1', 'login.scg.stanford.edu');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SCG</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../accounts/">Requesting Accounts</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../quick_start/">Quick Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../uv300/">NIH Supercomputer (UV300)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../covid19/">COVID-19 Access</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/connecting/">Connecting to SCG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/data_management/">Managing and Moving Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/job_scripts/">Working with Slurm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/ssh_controlmaster/">Avoiding Duo with SSH</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/gpus/">Using GPUs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">FAQs</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../account/">--account=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../time/">--time=?</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">CPUs/Nodes/Tasks?</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#tldr">TL;DR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#computer-architecture">Computer architecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parallel-computing">Parallel Computing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mpi">MPI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#threads">Threads</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tasks">Tasks</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../oak_migration/">Oak Storage Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/">Software</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contact/">Getting Help</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SCG</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>FAQs &raquo;</li>
+        
+      
+    
+    <li>CPUs/Nodes/Tasks?</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="nodes-vs-tasks-vs-cpus-vs-cores"><strong>nodes</strong> vs <strong>tasks</strong> vs <strong>cpus</strong> vs <strong>cores</strong><a class="headerlink" href="#nodes-vs-tasks-vs-cpus-vs-cores" title="Permanent link">&para;</a></h1>
+<p>A combination of raw technical detail, Slurm&rsquo;s loose usage of the terms <code>core</code>
+and <code>cpu</code> and multiple models of parallel computing require establishing a bit
+of background to fully explain how to make efficient use of multiple cores on
+SCG. Before we delve into that&hellip;</p>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<p>For the impatient reader, in 99.9% of the cases SCG was designed to support, </p>
+<div class="codehilite"><pre><span></span><code><span class="err">#SBATCH --nodes=1</span>
+<span class="err">#SBATCH --ntasks=1</span>
+<span class="err">#SBATCH --cpus-per-task=N</span>
+</code></pre></div>
+
+
+<p>is the correct way to request N cores for a job. Just replace N in that config
+with the number of cores you need and optionally inside job scripts use the
+<code>${SLURM_CPUS_PER_TASK}</code> variable to pass the number of cores in the job to
+commands that accept an argument for number of core, cpus or threads, e.g.,</p>
+<div class="codehilite"><pre><span></span><code>mycommand -arg1 -arg2 --threads=<span class="cp">${</span><span class="n">SLURM_CPUS_PER_TASK</span><span class="cp">}</span> ...
+</code></pre></div>
+
+
+<h2 id="computer-architecture">Computer architecture<a class="headerlink" href="#computer-architecture" title="Permanent link">&para;</a></h2>
+<p>The parts of a modern computer we need to understand to apply to running jobs
+are listed here. (Note: This is way oversimplified and intended to give a basic
+overview for the purposes of understanding how to request resources from Slurm,
+there are a lot of resources out there to dig deeper into computer
+architecture.)</p>
+<dl>
+  <dt>Board</dt>
+    <dd>A physical motherboard which contains one or more of each of Socket, Memory bus and PCI bus.</dd>
+  <dt>Socket</dt>
+    <dd>A physical socket on a motherboard which accepts a physical CPU part.</dd>
+  <dt>CPU</dt>
+    <dd>A physical part that is plugged into a socket.</dd>
+  <dt>Core</dt>
+    <dd>A physical CPU core, one of many possible cores, that are part of a CPU.</dd>
+  <dt>HyperThread</dt>
+    <dd>A virtual CPU thread, associated with a specific Core. This can be enabled or disabled on a system. SCG typically disabled hyperthreading.</dd>
+  <dt>Memory Bus</dt>
+    <dd>A communication bus between system memory and a Socket/CPU.</dd>
+  <dt>PCI Bus</dt>
+    <dd>A communication bus between a Socket/CPU and I/O controllers (disks, networking, graphics,...) in the server.</dd>
+</dl>
+
+<p>Slurm complicates this, however, by using the terms <code>core</code> and <code>cpu</code>
+interchangeably depending on the context and Slurm command. <code>--cpus-per-taks=</code>
+for example is actually specifying the number of cores per task. </p>
+<h2 id="parallel-computing">Parallel Computing<a class="headerlink" href="#parallel-computing" title="Permanent link">&para;</a></h2>
+<p>A very simplified description of parallel computing which is sufficient for
+most computing is to break parallel workloads into these three categories:</p>
+<dl>
+  <dt>Fine grained</dt>
+    <dd>Each process does a <b>lot</b> of communication with the other processes. Think of a model which uses a grid of cells, and at each iteration all the cells exchange information with their neighboring cells. These types of applications are typically limited by interprocess communication bandwidth.</dt>
+  <dt>Coarse grained</dt>
+    <dd>Each process occasionally comunicates with other processes. A model which has independent units that occasionally exchange information globally would fall into this category. These types of processes are typically CPU or I/O limited.</dt>
+  <dt>Embarrassingly Parallel</dt>
+    <dd>Processes do not communicate with each other and run completely independently, possibly including a step to merge results when the last process finishes. These types of processes are typically CPU or I/O limited.</dt>
+</dl>
+
+<p>Many bioinformatics tasks fall into the last category. Alignment, for instance,
+can be easily parallelized by breaking input sequences into subsets which are
+then individualy aligned to a reference and the results merged/sorted after all
+subsets are complete. Some tools do this internally, e.g. running BLAST with
+some number of threads allows BLAST to place subsets of input sequence into
+each thread and then align against a shared in-memory reference, thus giving a
+pretty good speedup to the overall alignment task.</p>
+<p>As the above example implies, when a task is broken up to be parallelized, the subtasks can be ran in more than one way. Models we care about for this are:</p>
+<h3 id="mpi">MPI<a class="headerlink" href="#mpi" title="Permanent link">&para;</a></h3>
+<p>MPI (Message Passing Interface) is not very common in bioinformatics tools as
+it is (in the opinion of this sysadmin) difficult to debug and use correctly
+and is overkill for breaking up embarassingly parallel tasks. It&rsquo;s so rare, in
+fact, that SCG by default rejects jobs that request more than one node on the
+assumption that doing so is almost always an error in the job submission. A
+special hidden partition is available for running MPI jobs upon request.
+MPI is really a special case of using Tasks (see below) to parallelze work
+but it has a complicated enough wrapper to deserve its own category.</p>
+<h3 id="threads">Threads<a class="headerlink" href="#threads" title="Permanent link">&para;</a></h3>
+<p>Most bioinformatics tools that include a parallel option in the application use
+threading, with the most commonly used implementation being OpenMP.
+Applications with take an argument specifying cores, threads or CPUs are very
+likely to be using this model to parallelize the work. Threads can make
+efficient use of memory for things like holding reference data used by multiple
+threads/processes while running. </p>
+<h3 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">&para;</a></h3>
+<p>The most common example of parallelizing this way on SCG is to take a directory
+with many different sequence files and use a job script or job array to run the
+same command on all files, placing each command into its own job. This is what 
+most bioinformatics workloads look like, at some point during a project when 
+there are too many tasks or the tasks are too large to handle on a laptop or
+workstation, they can easily be broken into jobs to run in parallel on the 
+SCG cluster resources.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../memory/" class="btn btn-neutral float-right" title="Memory?">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../time/" class="btn btn-neutral" title="--time=?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../time/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../memory/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

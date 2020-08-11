@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="@griznog">
+  <link rel="canonical" href="https://docs.scg.stanford.edu/faqs/time/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>--time=? - SCG</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "--time=?";
+    var mkdocs_page_input_path = "faqs/time.md";
+    var mkdocs_page_url = "/faqs/time/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-132448515-1', 'login.scg.stanford.edu');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SCG</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../accounts/">Requesting Accounts</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../quick_start/">Quick Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../uv300/">NIH Supercomputer (UV300)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../covid19/">COVID-19 Access</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/connecting/">Connecting to SCG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/data_management/">Managing and Moving Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/job_scripts/">Working with Slurm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/ssh_controlmaster/">Avoiding Duo with SSH</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/gpus/">Using GPUs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">FAQs</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../account/">--account=?</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">--time=?</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cores/">CPUs/Nodes/Tasks?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../oak_migration/">Oak Storage Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/">Software</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contact/">Getting Help</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SCG</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>FAQs &raquo;</li>
+        
+      
+    
+    <li>--time=?</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="is-time-required">Is <code>--time=...</code> required?<a class="headerlink" href="#is-time-required" title="Permanent link">&para;</a></h1>
+<p>Yes. Slurm uses the requested <code>--time=</code> for a job to determine if it is
+eligible for backfill, that is, to see if there is an idle slot available which
+may be reserved for a future job, but that future job starts far enough into
+the future that the smaller job would be finished before then. Having an
+accurate &ndash;time for a job gives it the best chance of running sooner than
+normal as backfill and helps make the overall utilization of the cluster more
+efficient.</p>
+<p>Operationally, there are two ways to handle this:</p>
+<ol>
+<li>Set a default time if none is specified.</li>
+<li>Force <code>--time=</code> to be included on every job.</li>
+</ol>
+<p>Since the sysadmins really have no idea what a good default time would be,
+trying to set one can result in having jobs die before they finish, thus
+wasting the time spent on them (in the absence of good checkpointing) or always
+guessing long and making backfill less efficient. Because of this, SCG requires
+that <code>--time=</code> be specified with every job.</p>
+<p>It is understandable, however, that someone who has applications or workflows
+which are inherently unpredictable would just want to have some default time
+set for them and not worry about this. If that is desired, then adding to the
+<code>~/.bashrc</code> file this line:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">export SBATCH_TIMELIMIT=4-00:00:00</span>
+</code></pre></div>
+
+
+<p>Would cause <code>sbatch</code> to always set <code>--time=4-00:00:00</code> unless it is explicitly set on the <code>sbatch</code> command line.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cores/" class="btn btn-neutral float-right" title="CPUs/Nodes/Tasks?">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../account/" class="btn btn-neutral" title="--account=?"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../account/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cores/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

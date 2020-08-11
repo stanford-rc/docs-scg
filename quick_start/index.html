@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="@griznog">
+  <link rel="canonical" href="https://docs.scg.stanford.edu/quick_start/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Quick Start - SCG</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Quick Start";
+    var mkdocs_page_input_path = "quick_start.md";
+    var mkdocs_page_url = "/quick_start/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-132448515-1', 'login.scg.stanford.edu');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SCG</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../accounts/">Requesting Accounts</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Quick Start</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#scg-ondemand">SCG OnDemand</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssh-terminal">SSH (Terminal)</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../uv300/">NIH Supercomputer (UV300)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../covid19/">COVID-19 Access</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/connecting/">Connecting to SCG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/data_management/">Managing and Moving Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/job_scripts/">Working with Slurm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/ssh_controlmaster/">Avoiding Duo with SSH</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/gpus/">Using GPUs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">FAQs</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/account/">--account=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/time/">--time=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/cores/">CPUs/Nodes/Tasks?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/memory/">Memory?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/oak_migration/">Oak Storage Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Getting Help</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SCG</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Quick Start</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="accessing-scg">Accessing SCG<a class="headerlink" href="#accessing-scg" title="Permanent link">&para;</a></h1>
+<h2 id="scg-ondemand">SCG OnDemand<a class="headerlink" href="#scg-ondemand" title="Permanent link">&para;</a></h2>
+<p><a href="https://ondemand.scg.stanford.edu">SCG OnDemand</a> is a web-based interface to
+SCG cluster resources. OnDemand offers terminal, file manager and editor and
+GUI access to an SCG desktop session and GUI applications right from a web
+browser. </p>
+<h2 id="ssh-terminal">SSH (Terminal)<a class="headerlink" href="#ssh-terminal" title="Permanent link">&para;</a></h2>
+<p>From the terminal application of your choice, ssh to <code>login.scg.stanford.edu</code>
+with your SUNetID username and password,</p>
+<div class="codehilite"><pre><span></span><code><span class="err">ssh SUNetID@login.scg.stanford.edu</span>
+</code></pre></div>
+
+
+<h1 id="data-management">Data Management<a class="headerlink" href="#data-management" title="Permanent link">&para;</a></h1>
+<p>Data can be moved in and out of SCG with a number of tools/methods.</p>
+<ul>
+<li><a href="https://ondemand.scg.stanford.edu/pun/sys/files/">SCG OnDemand File App</a></li>
+<li><a href="https://www.globus.org">Globus</a> (endpoint: SCG Cluster Storage)</li>
+<li><a href="smb://samba.scg.stanford.edu">Samba</a> </li>
+<li>rsync</li>
+<li>scp/sftp</li>
+</ul>
+<p>For more information see <a href="../tutorials/data_management/">Managing and Moving Data</a>.</p>
+<h1 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h1>
+<h2 id="environment-modules">Environment Modules<a class="headerlink" href="#environment-modules" title="Permanent link">&para;</a></h2>
+<p>SCG uses modules to manage software not installed into the base operating
+system image. Basic usage is shown below:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>module avail</code></td>
+<td>List available software</td>
+</tr>
+<tr>
+<td><code>module load APP/VERSION</code></td>
+<td>Load APP/VERSION into working environment</td>
+</tr>
+<tr>
+<td><code>module unload APP/VERSION</code></td>
+<td>Remove APP/VERSION from the working environment</td>
+</tr>
+<tr>
+<td><code>module purge</code></td>
+<td>Remove all loaded modules from working environment</td>
+</tr>
+</tbody>
+</table>
+<h1 id="slurm-job-submission">Slurm Job Submission<a class="headerlink" href="#slurm-job-submission" title="Permanent link">&para;</a></h1>
+<p>The SCG Cluster uses <a href="https://slurm.schedmd.com/">Slurm</a> as it&rsquo;s job scheduler,
+standard Slurm job scripts and commands will work, noting these SCG specific
+requirements: </p>
+<ul>
+<li>SCG partitions are <code>batch</code>, <code>interactive</code> and <code>nih_s10</code>.</li>
+<li>The <code>batch</code> and <code>nih_s10</code> partitions require specifying <code>--account=PI_SUNetID</code> where <code>PI_SUNetID</code> is the SUNetID of the PI for the job accounting. </li>
+<li>A <code>--time=</code> time limit must be specified.</li>
+<li>SCG is limited to single node jobs, so most jobs will want <code>--nodes=1 --ntasks=1 --cpus-per-task=N</code> where <code>N</code> is the number of cores for a multithreaded application.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../uv300/" class="btn btn-neutral float-right" title="NIH Supercomputer (UV300)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../accounts/" class="btn btn-neutral" title="Requesting Accounts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../accounts/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../uv300/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

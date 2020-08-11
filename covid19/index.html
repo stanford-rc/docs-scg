@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="@griznog">
+  <link rel="canonical" href="https://docs.scg.stanford.edu/covid19/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>COVID-19 Access - SCG</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "COVID-19 Access";
+    var mkdocs_page_input_path = "covid19.md";
+    var mkdocs_page_url = "/covid19/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-132448515-1', 'login.scg.stanford.edu');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SCG</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../accounts/">Requesting Accounts</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../quick_start/">Quick Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../uv300/">NIH Supercomputer (UV300)</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">COVID-19 Access</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#requesting-access">Requesting Access</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to Use</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#current-limits">Current Limits</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/connecting/">Connecting to SCG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/data_management/">Managing and Moving Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/job_scripts/">Working with Slurm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/ssh_controlmaster/">Avoiding Duo with SSH</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tutorials/gpus/">Using GPUs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">FAQs</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/account/">--account=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/time/">--time=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/cores/">CPUs/Nodes/Tasks?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/memory/">Memory?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../faqs/oak_migration/">Oak Storage Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/">Software</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Getting Help</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SCG</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>COVID-19 Access</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="special-access-for-covid-19-research">Special Access for COVID-19 Research<a class="headerlink" href="#special-access-for-covid-19-research" title="Permanent link">&para;</a></h1>
+<p>If your work is related to the COVID-19 virus, you can apply for Enhanced
+Access to the SCG Cluster.  With this access, we will give your compute jobs on
+the SCG Cluster a higher priority, which means they will execute sooner, wait
+less, and run more often.</p>
+<p><em>This Enhanced Access will NOT prevent your jobs from waiting. It will only
+ensure that they will be given priority in scheduling when resources are
+available.</em></p>
+<p>Enhanced Access COVID-19 jobs will be considered for scheduling above all other
+pending jobs, within the limits described at the bottom of this page.</p>
+<h2 id="requesting-access">Requesting Access<a class="headerlink" href="#requesting-access" title="Permanent link">&para;</a></h2>
+<p>To get Enhanced Access; please fill out <a href="https://bit.ly/GBSC-COVID-19">the application
+form</a> with your name, SUNetID, and SUNetID of
+your lab&rsquo;s PI; and give us a short paragraph about how your work relates to
+COVID-19 research and how better access to the cluster can help you achieve
+your goals faster and more efficiently. This application will be sent to your
+PI for their approval.</p>
+<p>If you would like to add another lab member on to an existing authorization,
+you do not need to fill in the survey again.  Instead, email
+<a href="mailto:scg-action@lists.stanford.edu">scg-action@lists.stanford.edu</a>, CCing
+your PI.  In the email, provide your SUNetID, the SUNetID of your lab&rsquo;s PI, and
+the SUNetID of the person who should be added to the existing request.  Your PI
+will need to approve the change (a simple reply-all to your email is fine).</p>
+<h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<p>Priority is provided for batch jobs using the <code>batch</code> and <code>nih_s10</code> partitions.
+Your job should be able to run using the <code>sbatch</code> command, so you should start
+by writing your batch script as normal.</p>
+<p>High-priority access is being implemented using a SLURM QoS.  Once your batch
+script is ready, you should modify it to use the new <code>covid19</code> QoS.  You can do
+this one of two ways:</p>
+<ol>
+<li>
+<p>In your <code>sbatch</code> command line, add the option <code>-q covid19</code> (or <code>--qos=covid19</code>).</p>
+</li>
+<li>
+<p>In the batch script, near the top, add the line <code>#SBATCH --qos=covid19</code>.
+   If you use this method, the line must appear before any commands.</p>
+</li>
+</ol>
+<p>The first method applies the QoS to only that specific job submission.  The
+second method applies the QoS to all job submissions using that batch script.</p>
+<p><strong>REMEMBER:</strong> This QoS may only be used for jobs related to COVID-19 research.
+If you have a pipeline that is being used for COVID-19 <em>and</em> non-COVID-19
+research, you should use method 1 (the <code>-q covid19</code> method) only for the
+COVID-19 runs.</p>
+<p>Once your job has been submitted, to confirm that your job is using the
+<code>covid19</code> QOS, you can run this command:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">scontrol show job JOBID</span>
+</code></pre></div>
+
+
+<p>(Replace <code>JOBID</code> with your job&rsquo;s ID number.)  Look for the <code>QOS</code> entry (near
+the top of the output) to confirm that you are using the <code>covid19</code> QoS.</p>
+<p>If you already have a job submitted, and it is <em>not</em> yet running, you can use the
+following command to change the job to use the new <code>covid19</code> QoS:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">scontrol update jobid=JOBID9 QOS=covid19</span>
+</code></pre></div>
+
+
+<p>(Again, substitute your job&rsquo;s ID number.)</p>
+<p>Note that the usual SLURM lag times still apply: Once a job is submitted (or
+modified), it can take a minute or two before it is run.  When the cluster is
+being fully-utilized, you job will still wait.</p>
+<ul>
+<li>
+<p>If your job is waiting because of <code>(Resources)</code>, your job is waiting for
+  other jobs to finish.  <em>COVID-19 jobs will not preempt/terminate non-COVID-19
+  jobs.</em>  As soon as enough jobs complete to free up the necessary resources,
+  your job will run.</p>
+</li>
+<li>
+<p>If your job is waiting for any <code>(QOS...)</code> reason, that means one or more of
+  the below limits have been reached.  As other COVID-19 jobs complete, your
+  job will begin.</p>
+</li>
+</ul>
+<h2 id="current-limits">Current Limits<a class="headerlink" href="#current-limits" title="Permanent link">&para;</a></h2>
+<p>At this time (June 9 @ 15:00 US/Pacific), the following limits are in place:</p>
+<ul>
+<li>
+<p>Each user may not have more than 5 jobs running under this QoS.</p>
+</li>
+<li>
+<p>Each group may not have more than 15 jobs running under this QoS.</p>
+</li>
+<li>
+<p>When adding up the number of CPU cores in use, no more than 180 may
+  be in use by this QoS.</p>
+</li>
+</ul>
+<p>We will be monitoring the cluster and reserve the right to adjust limits (up
+or down).  If we adjust limits down, we will not cancel any currently-running
+jobs.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/connecting/" class="btn btn-neutral float-right" title="Connecting to SCG">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../uv300/" class="btn btn-neutral" title="NIH Supercomputer (UV300)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../uv300/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tutorials/connecting/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

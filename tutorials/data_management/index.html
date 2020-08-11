@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="@griznog">
+  <link rel="canonical" href="https://docs.scg.stanford.edu/tutorials/data_management/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Managing and Moving Data - SCG</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Managing and Moving Data";
+    var mkdocs_page_input_path = "tutorials/data_management.md";
+    var mkdocs_page_url = "/tutorials/data_management/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-132448515-1', 'login.scg.stanford.edu');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SCG</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../accounts/">Requesting Accounts</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../quick_start/">Quick Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../uv300/">NIH Supercomputer (UV300)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../covid19/">COVID-19 Access</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../connecting/">Connecting to SCG</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Managing and Moving Data</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../job_scripts/">Working with Slurm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ssh_controlmaster/">Avoiding Duo with SSH</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../gpus/">Using GPUs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">FAQs</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faqs/account/">--account=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faqs/time/">--time=?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faqs/cores/">CPUs/Nodes/Tasks?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faqs/memory/">Memory?</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faqs/oak_migration/">Oak Storage Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/">Software</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contact/">Getting Help</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SCG</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Managing and Moving Data</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="storage-locations">Storage Locations<a class="headerlink" href="#storage-locations" title="Permanent link">&para;</a></h1>
+<p>Each user has access to several storage types and locations. The following
+table lists the storage locations, limits and the use for which each is best
+suited. </p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Quota</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/home/SUNetID</code></td>
+<td>32 GB</td>
+<td>Config files, important scripts, private software/data</td>
+</tr>
+<tr>
+<td><code>/labs/PI_SUNetID</code></td>
+<td>128 GB (Free Tier)<br>7 TB and up (Full Tier)</td>
+<td>Working data, lab shared software, results, etc.</td>
+</tr>
+<tr>
+<td><code>/oak</code></td>
+<td><a href="https://oak.stanford.edu">Oak Storage</a></td>
+<td>Working data, lab shared software, results, etc.</td>
+</tr>
+<tr>
+<td><code>/tmp</code></td>
+<td>no quota, limited by node capacity</td>
+<td>Per-job temporary files, data read many times during a job</td>
+</tr>
+</tbody>
+</table>
+<h1 id="moving-data-tofrom-scg">Moving Data to/from SCG<a class="headerlink" href="#moving-data-tofrom-scg" title="Permanent link">&para;</a></h1>
+<h2 id="globus">Globus<a class="headerlink" href="#globus" title="Permanent link">&para;</a></h2>
+<p>When moving large amounts of data, either in size, large counts of small files or both,
+<a href="https://www.globus.org">Globus</a> offers an easy to use web interface, a
+personal connect client that can be installed on your laptop/desktop or on any
+system you have access to and provides easy access and security using your
+Stanford login. The <a href="https://www.globus.org">Globus</a> tools can be used to move,
+copy or sync data and will retry in the background on errors.</p>
+<p>The SCG Globus endpoint is <code>SCG Cluster Storage</code></p>
+<hr />
+<h2 id="scg-ondemand-file-app">SCG OnDemand File App<a class="headerlink" href="#scg-ondemand-file-app" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://ondemand.scg.stanford.edu/pun/sys/files/">SCG OnDemand File App
+(https://ondemand.scg.stanford.edu/)</a>
+offers an intuitive interface to navigate SCG storage and upload or download
+files. It also includes built in tools to view and edit files in the web
+browser. </p>
+<hr />
+<h2 id="samba">Samba<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h2>
+<p>The Samba server at samba.scg.stanford.edu presents SCG storage to Stanford campus networks and VPN and makes it possible to easily mount the storage as a shared drive on your local system. Basic instructions/troubleshooting for each major Operating System are below or you can try this direct link if you are feeling lucky and aren&rsquo;t using Windows:</p>
+<ul>
+<li><a href="smb://samba.scg.stanford.edu">SCG Samba Direct Link</a></li>
+</ul>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>Open a terminal and run <code>kinit SUNeTID@stanford.edu</code> replacing SUNetID with your SUNetID. For example, </p>
+<div class="codehilite"><pre><span></span><code><span class="n">griznog</span><span class="nv">@gambusia</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">kinit</span><span class="w"> </span><span class="n">griznog</span><span class="nv">@stanford</span><span class="p">.</span><span class="n">edu</span><span class="w"></span>
+<span class="n">Password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">griznog</span><span class="nv">@stanford</span><span class="p">.</span><span class="nl">edu</span><span class="p">:</span><span class="w"> </span>
+<span class="n">griznog</span><span class="nv">@gambusia</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">klist</span><span class="w"></span>
+<span class="n">Ticket</span><span class="w"> </span><span class="nl">cache</span><span class="p">:</span><span class="w"> </span><span class="k">FILE</span><span class="err">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">krb5cc_1000</span><span class="w"></span>
+<span class="k">Default</span><span class="w"> </span><span class="nl">principal</span><span class="p">:</span><span class="w"> </span><span class="n">griznog</span><span class="nv">@stanford</span><span class="p">.</span><span class="n">edu</span><span class="w"></span>
+
+<span class="n">Valid</span><span class="w"> </span><span class="n">starting</span><span class="w">       </span><span class="n">Expires</span><span class="w">              </span><span class="n">Service</span><span class="w"> </span><span class="n">principal</span><span class="w"></span>
+<span class="mi">07</span><span class="o">/</span><span class="mi">15</span><span class="o">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">13</span><span class="err">:</span><span class="mi">08</span><span class="err">:</span><span class="mi">37</span><span class="w">  </span><span class="mi">07</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">14</span><span class="err">:</span><span class="mi">08</span><span class="err">:</span><span class="mi">27</span><span class="w">  </span><span class="n">krbtgt</span><span class="o">/</span><span class="n">stanford</span><span class="p">.</span><span class="n">edu</span><span class="nv">@stanford</span><span class="p">.</span><span class="n">edu</span><span class="w"></span>
+<span class="w">  </span><span class="n">renew</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="mi">07</span><span class="o">/</span><span class="mi">22</span><span class="o">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">13</span><span class="err">:</span><span class="mi">08</span><span class="err">:</span><span class="mi">27</span><span class="w"></span>
+<span class="w">  </span><span class="n">griznog</span><span class="nv">@gambusia</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span>
+</code></pre></div>
+
+
+<p>In Linux open Nautilus or your distribution&rsquo;s file manager app and in the path
+area or under a menu selection like <code>Connect to server...</code> enter</p>
+<div class="codehilite"><pre><span></span><code><span class="c">smb://samba.scg.stanford.edu/</span>
+</code></pre></div>
+
+
+<p>and you should be presented with a window displaying the available network
+shares. The special share labeled with your <code>SUNetID</code> is your SCG <code>$HOME</code>
+directory.</p>
+<h3 id="mac-os-x">Mac OS X<a class="headerlink" href="#mac-os-x" title="Permanent link">&para;</a></h3>
+<p>Open a terminal and run <code>kinit SUNeTID@stanford.edu</code> replacing SUNetID with your SUNetID.</p>
+<p>Open Finder, select <code>Connect to server</code> and enter </p>
+<div class="codehilite"><pre><span></span><code><span class="c">smb://samba.scg.stanford.edu/</span>
+</code></pre></div>
+
+
+<p>and you should be presented with a Finder window displaying the available network
+shares. The special share labeled with your <code>SUNetID</code> is your SCG <code>$HOME</code> 
+directory.</p>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>Open an explore window and in the path section enter </p>
+<div class="codehilite"><pre><span></span><code><span class="err">\\samba.scg.stanford.edu</span>
+</code></pre></div>
+
+
+<p>At the login prompt, user your SUNetID and password to connect and you should
+be presented with a window displaying the available network shares. The special
+share labeled with your <code>SUNetID</code> is your SCG <code>$HOME</code> directory.</p>
+<p>If login fails, you may need to run these commands from an Administrator enabled account:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">ksetup /addkdc stanford.edu krb5auth1.stanford.edu</span>
+<span class="err">ksetup /addhosttorealmmap .stanford.edu stanford.edu</span>
+</code></pre></div>
+
+
+<hr />
+<h2 id="rsync">rsync<a class="headerlink" href="#rsync" title="Permanent link">&para;</a></h2>
+<p><a href="https://rsync.samba.org/documentation.html">rsync</a> is a time-tested tool for
+moving data both between remote systems and locally. With a large number of
+options and features, it&rsquo;s impossible to completely cover all potential uses of
+<a href="https://rsync.samba.org/documentation.html">rsync</a>, so a few typical example
+use cases are shown below. Basic
+<a href="https://rsync.samba.org/documentation.html">rsync</a> usage is </p>
+<div class="codehilite"><pre><span></span><code><span class="n">rsync</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">user@host:</span><span class="o">]/</span><span class="k">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">source</span><span class="w"> </span><span class="o">[</span><span class="n">user@host:</span><span class="o">]/</span><span class="k">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">target</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>Note that only one of source and target can be a remote host. An example of
+copying files from my local system to SCG is</p>
+<div class="codehilite"><pre><span></span><code><span class="err">rsync -a -v --partial --progress /mydrive/mydata griznog@login.scg.stanford.edu:/labs/ruthm/</span>
+</code></pre></div>
+
+
+<p>In that command note the following:</p>
+<ul>
+<li><code>--partial</code> : If the transfer fails, try to reuse any partially copied files when restarting. </li>
+<li><code>-a</code> : A shortcut for <em>archive</em>, pulling in recursion and several other options which attempt to make a complete copy of the source files/directories.</li>
+<li><code>--progress</code> : Show a progress bar with transfer speed for each file transferred.</li>
+<li><code>/mydrive/mydata</code> : A source directory. Note that including a trailing /, e.g., <code>/home/giznog/mydata/</code> will cause <a href="https://rsync.samba.org/documentation.html">rsync</a> to work on the <em>contents</em> of the directory rather than the directory itself. This is a subtle difference that can lead to confusion on the target copy. </li>
+<li><code>griznog@login.scg.stanford.edu:/labs/ruthm/griznog/</code> : A target location. The trailing slash on a target has no significance. </li>
+</ul>
+<p>Some other interesting and useful <a href="https://rsync.samba.org/documentation.html">rsync</a> options are:</p>
+<ul>
+<li><code>--delete</code> : Useful when running <a href="https://rsync.samba.org/documentation.html">rsync</a> to update a remote copy where you want to delete any files that have been deleted on the local copy.</li>
+<li><code>--remove-source-files</code> : In cases where <a href="https://rsync.samba.org/documentation.html">rsync</a> is being used to quickly clean up data, for instance to reduce usage due to quota, this option will remove files once they have been successfully copied rather than having to wait until the entire <a href="https://rsync.samba.org/documentation.html">rsync</a> completes and deleting them manually. It does not remove directories.</li>
+<li><code>--dry-run</code> : Show what <a href="https://rsync.samba.org/documentation.html">rsync</a> would do, but don&rsquo;t actually do any copy or removal. Useful to test with <code>--delete</code> or <code>--remove-source-files</code> before running a potentially destructive <a href="https://rsync.samba.org/documentation.html">rsync</a> command. </li>
+</ul>
+<hr />
+<h2 id="sftp">sftp<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h2>
+<p><code>sftp</code> provides a secure/encrypted analogs to <code>ftp</code> for any remote sites where ssh access is available. Example usage:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">griznog</span><span class="nv">@lepomis</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">sftp</span><span class="w"> </span><span class="n">griznog</span><span class="nv">@login</span><span class="p">.</span><span class="n">scg</span><span class="p">.</span><span class="n">stanford</span><span class="p">.</span><span class="n">edu</span><span class="w"></span>
+<span class="n">Connected</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">login</span><span class="p">.</span><span class="n">scg</span><span class="p">.</span><span class="n">stanford</span><span class="p">.</span><span class="n">edu</span><span class="p">.</span><span class="w"></span>
+<span class="n">sftp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ls</span><span class="w"></span>
+<span class="n">Desktop</span><span class="w">    </span><span class="n">Documents</span><span class="w">  </span><span class="n">Downloads</span><span class="w">  </span><span class="n">Logs</span><span class="w">       </span><span class="n">Music</span><span class="w">      </span><span class="n">Pictures</span><span class="w">   </span><span class="n">Projects</span><span class="w">   </span>
+<span class="k">Public</span><span class="w">     </span><span class="n">Scratch</span><span class="w">    </span><span class="n">Templates</span><span class="w">  </span><span class="n">Videos</span><span class="w">     </span><span class="n">Working</span><span class="w">    </span><span class="n">bin</span><span class="w">        </span><span class="n">myfile</span><span class="w">     </span>
+<span class="n">ondemand</span><span class="w">   </span><span class="n">rpmbuild</span><span class="w">   </span>
+<span class="n">sftp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">help</span><span class="w"></span>
+<span class="n">Available</span><span class="w"> </span><span class="nl">commands</span><span class="p">:</span><span class="w"></span>
+<span class="n">bye</span><span class="w">                                </span><span class="n">Quit</span><span class="w"> </span><span class="n">sftp</span><span class="w"></span>
+<span class="n">cd</span><span class="w"> </span><span class="k">path</span><span class="w">                            </span><span class="n">Change</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="w"></span>
+<span class="n">chgrp</span><span class="w"> </span><span class="n">grp</span><span class="w"> </span><span class="k">path</span><span class="w">                     </span><span class="n">Change</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;grp&#39;</span><span class="w"></span>
+<span class="n">chmod</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="k">path</span><span class="w">                    </span><span class="n">Change</span><span class="w"> </span><span class="nf">permissions</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;mode&#39;</span><span class="w"></span>
+<span class="n">chown</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="k">path</span><span class="w">                     </span><span class="n">Change</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;own&#39;</span><span class="w"></span>
+<span class="n">df</span><span class="w"> </span><span class="o">[</span><span class="n">-hi</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">path</span><span class="o">]</span><span class="w">                    </span><span class="n">Display</span><span class="w"> </span><span class="k">statistics</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="ow">or</span><span class="w"></span>
+<span class="w">                                   </span><span class="n">filesystem</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="w"></span>
+<span class="k">exit</span><span class="w">                               </span><span class="n">Quit</span><span class="w"> </span><span class="n">sftp</span><span class="w"></span>
+<span class="k">get</span><span class="w"> </span><span class="o">[</span><span class="n">-afPpRr</span><span class="o">]</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="o">[</span><span class="n">local</span><span class="o">]</span><span class="w">       </span><span class="n">Download</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">reget</span><span class="w"> </span><span class="o">[</span><span class="n">-fPpRr</span><span class="o">]</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="o">[</span><span class="n">local</span><span class="o">]</span><span class="w">      </span><span class="n">Resume</span><span class="w"> </span><span class="n">download</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">reput</span><span class="w"> </span><span class="o">[</span><span class="n">-fPpRr</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">local</span><span class="o">]</span><span class="w"> </span><span class="n">remote</span><span class="w">      </span><span class="n">Resume</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">help</span><span class="w">                               </span><span class="n">Display</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="nc">text</span><span class="w"></span>
+<span class="n">lcd</span><span class="w"> </span><span class="k">path</span><span class="w">                           </span><span class="n">Change</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="w"></span>
+<span class="n">lls</span><span class="w"> </span><span class="o">[</span><span class="n">ls-options [path</span><span class="o">]</span><span class="err">]</span><span class="w">            </span><span class="n">Display</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">listing</span><span class="w"></span>
+<span class="n">lmkdir</span><span class="w"> </span><span class="k">path</span><span class="w">                        </span><span class="k">Create</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="k">ln</span><span class="w"> </span><span class="o">[</span><span class="n">-s</span><span class="o">]</span><span class="w"> </span><span class="n">oldpath</span><span class="w"> </span><span class="n">newpath</span><span class="w">            </span><span class="n">Link</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">symlink</span><span class="p">)</span><span class="w"></span>
+<span class="n">lpwd</span><span class="w">                               </span><span class="k">Print</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="n">ls</span><span class="w"> </span><span class="o">[</span><span class="n">-1afhlnrSt</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">path</span><span class="o">]</span><span class="w">             </span><span class="n">Display</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">listing</span><span class="w"></span>
+<span class="n">lumask</span><span class="w"> </span><span class="n">umask</span><span class="w">                       </span><span class="k">Set</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">umask</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;umask&#39;</span><span class="w"></span>
+<span class="n">mkdir</span><span class="w"> </span><span class="k">path</span><span class="w">                         </span><span class="k">Create</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="n">progress</span><span class="w">                           </span><span class="n">Toggle</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="n">meter</span><span class="w"></span>
+<span class="n">put</span><span class="w"> </span><span class="o">[</span><span class="n">-afPpRr</span><span class="o">]</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="o">[</span><span class="n">remote</span><span class="o">]</span><span class="w">       </span><span class="n">Upload</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">pwd</span><span class="w">                                </span><span class="n">Display</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="n">quit</span><span class="w">                               </span><span class="n">Quit</span><span class="w"> </span><span class="n">sftp</span><span class="w"></span>
+<span class="n">rename</span><span class="w"> </span><span class="n">oldpath</span><span class="w"> </span><span class="n">newpath</span><span class="w">             </span><span class="n">Rename</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">rm</span><span class="w"> </span><span class="k">path</span><span class="w">                            </span><span class="k">Delete</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">rmdir</span><span class="w"> </span><span class="k">path</span><span class="w">                         </span><span class="n">Remove</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="n">symlink</span><span class="w"> </span><span class="n">oldpath</span><span class="w"> </span><span class="n">newpath</span><span class="w">            </span><span class="n">Symlink</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+<span class="n">version</span><span class="w">                            </span><span class="n">Show</span><span class="w"> </span><span class="n">SFTP</span><span class="w"> </span><span class="n">version</span><span class="w"></span>
+<span class="err">!</span><span class="n">command</span><span class="w">                           </span><span class="k">Execute</span><span class="w"> </span><span class="s1">&#39;command&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">shell</span><span class="w"></span>
+<span class="err">!</span><span class="w">                                  </span><span class="k">Escape</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">shell</span><span class="w"></span>
+<span class="vm">?</span><span class="w">                                  </span><span class="n">Synonym</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">help</span><span class="w"></span>
+<span class="n">sftp</span><span class="o">&gt;</span><span class="w"> </span>
+</code></pre></div>
+
+
+<hr />
+<h2 id="scp">scp<a class="headerlink" href="#scp" title="Permanent link">&para;</a></h2>
+<p><code>scp</code> provides a secure/encrypted analog to <code>cp</code> which works with remote sources or targets. Example usage:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">griznog@lepomis:~$ scp myfile griznog@login.scg.stanford.edu:</span>
+<span class="err">myfile                                               100%    0     0.0KB/s   00:00    </span>
+</code></pre></div>
+
+
+<p>Useful options are <code>-r</code> for recursion (to copy directories) and <code>-v</code> for verbose output.</p>
+<hr />
+<h2 id="rclone">rclone<a class="headerlink" href="#rclone" title="Permanent link">&para;</a></h2>
+<p><a href="https://rclone.org/">rclone</a> is a powerful file transfer and synchronizing tool that works with a large number of cloud services. Configuration and usage is well documented on the <a href="https://rclone.org/">rclone website</a>. One of the most common uses of rclone on SCG is to keep copies of data on SCG archived or backed up to Box or Google Drive.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../job_scripts/" class="btn btn-neutral float-right" title="Working with Slurm">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../connecting/" class="btn btn-neutral" title="Connecting to SCG"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../connecting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../job_scripts/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
