@@ -24,6 +24,7 @@ nav:
         - "CPUs/Nodes/Tasks?": faqs/cores.md
         - "Memory?": faqs/memory.md
         - "Oak Storage Migration": faqs/oak_migration.md
+    - "Software": software.md 
     - "Getting Help": contact.md
 
 extra_css: [extra.css]
